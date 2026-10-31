@@ -1,398 +1,1556 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glownea by Mim | Authentic Skincare & Cosmetics</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Glownea by Mim | Premium Authentic Skincare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-pink: #d63384;
-            --light-pink: #fff0f3;
-            --dark-text: #2b2b2b;
-            --gray-bg: #f9f9f9;
-            --white: #ffffff;
+            --soft-white: #FBF5F3;
+            --blush: #EAD6D4;
+            --dusty-rose: #C99D9B;
+            --mauve: #8C6B6C;
+            --deep-plum: #514345;
+            --white: #FFFFFF;
+            --shadow-subtle: 0 10px 30px rgba(81, 67, 69, 0.05);
+            --shadow-hover: 0 15px 35px rgba(81, 67, 69, 0.1);
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--gray-bg);
-            color: var(--dark-text);
-            padding-bottom: 80px;
+            background-color: var(--soft-white);
+            color: var(--deep-plum);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Top Bar & Header */
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 1. ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background-color: var(--deep-plum);
+            color: var(--soft-white);
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* 2. HEADER & NAVIGATION */
         header {
-            background: var(--white);
+            background-color: rgba(251, 245, 243, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--blush);
         }
 
-        .social-strip {
-            background: var(--primary-pink);
-            color: var(--white);
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 6px 15px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .social-strip a {
-            color: var(--white);
-            text-decoration: none;
+        .header-inner {
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
-
-        .main-header {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
+            height: 80px;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--primary-pink);
-            letter-spacing: 0.5px;
+        .brand-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-plum);
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .search-container {
-            padding: 0 20px 12px;
-        }
-
-        .search-box {
-            position: relative;
-            width: 100%;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1px solid #e0e0e0;
-            border-radius: 25px;
-            background: var(--gray-bg);
-            outline: none;
-            font-size: 13px;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #888;
-        }
-
-        /* Hero Banner */
-        .hero-section {
-            background: linear-gradient(135deg, var(--light-pink) 0%, #ffe3ec 100%);
-            padding: 30px 20px;
-            margin: 15px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            color: var(--primary-pink);
-            font-size: 22px;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .hero-section p {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        .hero-btn {
-            background: var(--primary-pink);
-            color: var(--white);
-            padding: 10px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-block;
-            box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
-        }
-
-        /* Section Title */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px 10px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #222;
-        }
-
-        /* Brands Grid */
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            padding: 0 20px;
-        }
-
-        .brand-item {
-            background: var(--white);
-            padding: 12px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        /* Product Catalog Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 10px 20px;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 12px;
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        }
-
-        .product-img-wrap {
-            width: 100%;
-            height: 140px;
-            background: #fdfdfd;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .product-img-wrap img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .brand-tag {
-            font-size: 10px;
-            color: var(--primary-pink);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .product-name {
-            font-size: 13px;
-            font-weight: 600;
-            margin: 4px 0 8px;
-            color: #333;
-            line-height: 1.3;
-        }
-
-        .product-price {
-            font-size: 14px;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: 10px;
-        }
-
-        .order-btn {
-            background: var(--primary-pink);
-            color: var(--white);
-            border: none;
-            padding: 8px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 12px;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
+        .brand-logo span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
             display: block;
+            margin-top: -6px;
+            letter-spacing: 0.25em;
+            color: var(--mauve);
+            font-weight: 400;
         }
 
-        /* Bottom Fixed Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
+        .nav-menu {
             display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            border-top: 1px solid #eee;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
+            gap: 32px;
+            list-style: none;
         }
 
         .nav-link {
-            text-align: center;
-            color: #777;
-            font-size: 10px;
-            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--deep-plum);
+            font-weight: 500;
+            position: relative;
         }
 
-        .nav-link i {
-            font-size: 18px;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--dusty-rose);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-btn {
+            color: var(--deep-plum);
+            font-size: 1.25rem;
+            position: relative;
+            padding: 8px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background-color: var(--dusty-rose);
+            color: var(--white);
+            font-size: 0.65rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+        }
+
+        /* SEARCH BAR OVERLAY */
+        .search-bar-container {
+            background-color: var(--white);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--blush);
+            display: none;
+        }
+
+        .search-bar-container.active {
             display: block;
-            margin-bottom: 3px;
         }
 
-        .nav-link.active {
-            color: var(--primary-pink);
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--blush);
+            border-radius: var(--radius-sm);
+            background-color: var(--soft-white);
+            color: var(--deep-plum);
+            font-size: 0.95rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--dusty-rose);
+        }
+
+        /* 3. HERO SECTION */
+        .hero {
+            padding: 80px 0 100px;
+            background: linear-gradient(180deg, var(--soft-white) 0%, var(--blush) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.75rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--deep-plum);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--mauve);
+            margin-bottom: 36px;
+            max-width: 480px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--dusty-rose);
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(201, 157, 155, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--mauve);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(140, 107, 108, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--deep-plum);
+            border: 1px solid var(--deep-plum);
+            padding: 15px 35px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--deep-plum);
+            color: var(--white);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            background-color: var(--white);
+            padding: 16px;
+        }
+
+        .hero-image-card img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+
+        /* 4. FEATURED BRANDS */
+        .brands-section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--blush);
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--mauve);
+            margin-bottom: 30px;
+        }
+
+        .brands-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .brand-badge {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--mauve);
+            letter-spacing: 0.05em;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .brand-badge:hover {
+            opacity: 1;
+            color: var(--deep-plum);
+            transform: translateY(-2px);
+        }
+
+        /* SECTION HEADER COMPONENT */
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            color: var(--deep-plum);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--mauve);
+            font-size: 1rem;
+        }
+
+        /* 5. SHOP BY CATEGORY */
+        .categories-section {
+            padding: 100px 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border: 1px solid var(--blush);
+            border-radius: var(--radius-md);
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            border-color: var(--dusty-rose);
+            box-shadow: var(--shadow-subtle);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--blush);
+            color: var(--deep-plum);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.2rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--deep-plum);
+        }
+
+        /* 6 & 7. PRODUCTS (BESTSELLER & NEW ARRIVALS) */
+        .products-section {
+            padding: 60px 0 100px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid rgba(234, 214, 212, 0.5);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+            border-color: var(--dusty-rose);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 260px;
+            background-color: var(--soft-white);
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image-container img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--white);
+            color: var(--deep-plum);
+            padding: 4px 10px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-brand {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mauve);
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--deep-plum);
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-plum);
+            margin-top: auto;
+            margin-bottom: 16px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-add-cart {
+            flex-grow: 1;
+            background-color: var(--soft-white);
+            color: var(--deep-plum);
+            border: 1px solid var(--blush);
+            padding: 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .btn-add-cart:hover {
+            background-color: var(--dusty-rose);
+            color: var(--white);
+            border-color: var(--dusty-rose);
+        }
+
+        .btn-quick-view {
+            background-color: var(--soft-white);
+            color: var(--deep-plum);
+            border: 1px solid var(--blush);
+            width: 38px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-quick-view:hover {
+            background-color: var(--deep-plum);
+            color: var(--white);
+        }
+
+        /* 8. SKINCARE COLLECTIONS (EDITORIAL BANNER) */
+        .editorial-section {
+            padding: 60px 0 100px;
+        }
+
+        .editorial-box {
+            background-color: var(--blush);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .editorial-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .editorial-content p {
+            color: var(--deep-plum);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .editorial-image {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 380px;
+        }
+
+        .editorial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 9 & 10. ABOUT & WHY SHOP WITH US */
+        .features-section {
+            padding: 80px 0;
+            background-color: var(--white);
+            border-top: 1px solid var(--blush);
+            border-bottom: 1px solid var(--blush);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            color: var(--dusty-rose);
+            margin-bottom: 16px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--mauve);
+        }
+
+        /* 11. REVIEWS SECTION */
+        .reviews-section {
+            padding: 100px 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--blush);
+        }
+
+        .review-stars {
+            color: var(--dusty-rose);
+            margin-bottom: 16px;
+            font-size: 0.85rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--deep-plum);
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--deep-plum);
+        }
+
+        .reviewer-title {
+            font-size: 0.75rem;
+            color: var(--mauve);
+        }
+
+        /* 12. NEWSLETTER */
+        .newsletter-section {
+            padding: 80px 0;
+            background-color: var(--blush);
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 460px;
+            margin: 30px auto 0;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border: 1px solid var(--dusty-rose);
+            border-radius: var(--radius-sm);
+            background-color: var(--white);
+            outline: none;
+        }
+
+        /* 13. FOOTER */
+        footer {
+            background-color: var(--deep-plum);
+            color: var(--soft-white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--soft-white);
+        }
+
+        .footer-about p {
+            color: var(--blush);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            max-width: 320px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(234, 214, 212, 0.1);
+            color: var(--soft-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            background-color: var(--dusty-rose);
+        }
+
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--soft-white);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--blush);
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--dusty-rose);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(234, 214, 212, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--blush);
+        }
+
+        /* MODAL & SIDE PANEL (CART / CHECKOUT / QUICK VIEW) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(81, 67, 69, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+         .side-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            background-color: var(--white);
+            z-index: 2001;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        }
+
+        .side-panel.active {
+            right: 0;
+        }
+
+        .panel-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--blush);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .panel-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--soft-white);
+        }
+
+        .cart-item-img {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-sm);
+            object-fit: cover;
+            background-color: var(--soft-white);
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-price {
+            font-size: 0.85rem;
+            color: var(--mauve);
+            margin-bottom: 8px;
+        }
+
+        .cart-qty-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-btn {
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--blush);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .panel-footer {
+            padding: 24px;
+            border-top: 1px solid var(--blush);
+            background-color: var(--soft-white);
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* CHECKOUT FORM */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 6px;
+            color: var(--deep-plum);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--blush);
+            border-radius: var(--radius-sm);
+            background-color: var(--white);
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            border-color: var(--dusty-rose);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .category-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero-content h1 { font-size: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { height: 70px; }
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .editorial-box { grid-template-columns: 1fr; padding: 30px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .btn-secondary { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+            .btn-primary { display: block; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .category-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Header -->
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        100% Authentic Korean & Global Skincare — Delivered Across Bangladesh
+    </div>
+
+    <!-- 2. HEADER & NAVIGATION -->
     <header>
-        <div class="social-strip">
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
-            <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <div class="container">
+            <div class="header-inner">
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <a href="#" class="brand-logo">
+                    Glownea
+                    <span>BY MIM</span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#categories" class="nav-link">Categories</a></li>
+                        <li><a href="#bestsellers" class="nav-link">Bestsellers</a></li>
+                        <li><a href="#new" class="nav-link">New Arrivals</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="searchToggleBtn" aria-label="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="icon-btn" id="cartToggleBtn" aria-label="Cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="main-header">
-            <div class="logo">Glownea by Mim</div>
-            <a href="https://m.me/yourfacebookpage" target="_blank" style="color: var(--primary-pink); font-size: 20px;"><i class="fa-brands fa-facebook-messenger"></i></a>
-        </div>
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search skincare products, brands...">
+
+        <!-- SEARCH CONTAINER -->
+        <div class="search-bar-container" id="searchContainer">
+            <div class="container">
+                <div class="search-form">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search by product name, category or brand (e.g., COSRX, Cleanser)...">
+                    <button class="icon-btn" id="closeSearchBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero-section">
-        <h1>Glow Naturally Every Day</h1>
-        <p>100% Authentic Korean & Global Skincare Products in Bangladesh</p>
-        <a href="https://m.me/yourfacebookpage" target="_blank" class="hero-btn">Order on Messenger</a>
-    </section>
+    <main>
+        <!-- 3. HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1>Curated Skincare for your Natural Radiance</h1>
+                        <p>Discover authentic Korean and global skincare solutions tailored to nurture and protect your skin everyday.</p>
+                        <a href="#bestsellers" class="btn-primary">Explore Collection</a>
+                        <a href="#categories" class="btn-secondary">Shop Categories</a>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-card">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Luxury Skincare Collection">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Brands Section -->
-    <div class="section-header">
-        <div class="section-title">Popular Brands</div>
+        <!-- 4. FEATURED BRANDS -->
+        <section class="brands-section">
+            <div class="container">
+                <div class="section-label">Authentic Brands We Stock</div>
+                <div class="brands-flex">
+                    <div class="brand-badge">COSRX</div>
+                    <div class="brand-badge">Beauty of Joseon</div>
+                    <div class="brand-badge">Anua</div>
+                    <div class="brand-badge">AXIS-Y</div>
+                    <div class="brand-badge">CeraVe</div>
+                    <div class="brand-badge">SKIN1004</div>
+                    <div class="brand-badge">The Ordinary</div>
+                    <div class="brand-badge">Cetaphil</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SHOP BY CATEGORY -->
+        <section class="categories-section" id="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Shop by Category</h2>
+                    <p>Targeted solutions for your personalized skincare routine.</p>
+                </div>
+                <div class="category-grid">
+                    <div class="category-card" onclick="filterByCategory('Face Wash & Cleanser')">
+                        <div class="category-icon"><i class="fa-solid fa-pump-soap"></i></div>
+                        <h3>Cleansers</h3>
+                        <p style="font-size: 0.8rem; color: var(--mauve);">Purify & Refresh</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Toner')">
+                        <div class="category-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+                        <h3>Toners</h3>
+                        <p style="font-size: 0.8rem; color: var(--mauve);">Balance & Prep</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Serum')">
+                        <div class="category-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <h3>Serums</h3>
+                        <p style="font-size: 0.8rem; color: var(--mauve);">Target & Nourish</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Moisturizer')">
+                        <div class="category-icon"><i class="fa-solid fa-jar"></i></div>
+                        <h3>Moisturizers</h3>
+                        <p style="font-size: 0.8rem; color: var(--mauve);">Hydrate & Lock</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Sunscreen')">
+                        <div class="category-icon"><i class="fa-solid fa-sun"></i></div>
+                        <h3>Sunscreens</h3>
+                        <p style="font-size: 0.8rem; color: var(--mauve);">Shield & Protect</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. BESTSELLING PRODUCTS -->
+        <section class="products-section" id="bestsellers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Bestselling Formulas</h2>
+                    <p>Handpicked community favorites proven to deliver noticeable results.</p>
+                </div>
+                <div class="product-grid" id="bestsellerGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. EDITORIAL SKINCARE COLLECTIONS -->
+        <section class="editorial-section">
+            <div class="container">
+                <div class="editorial-box">
+                    <div class="editorial-content">
+                        <h2 class="font-serif">Glass Skin Essentials</h2>
+                        <p>Achieve the ultimate hydrated, luminous complexion with our thoughtfully curated Korean skincare routines.</p>
+                        <a href="#bestsellers" class="btn-primary">Shop Routine</a>
+                    </div>
+                    <div class="editorial-image">
+                        <img src="https://images.unsplash.com/photo-1608248597359-994b61386121?auto=format&fit=crop&w=800&q=80" alt="Editorial Routine">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. NEW ARRIVALS -->
+        <section class="products-section" id="new">
+            <div class="container">
+                <div class="section-header">
+                    <h2>New Arrivals</h2>
+                    <p>The latest additions to upgrade your vanity counter.</p>
+                </div>
+                <div class="product-grid" id="newArrivalsGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 9 & 10. ABOUT & WHY SHOP WITH US -->
+        <section class="features-section" id="about">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4>100% Authentic</h4>
+                        <p>Directly sourced products guaranteed to be original and safe.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h4>Fast Delivery</h4>
+                        <p>Reliable shipping straight to your doorstep anywhere in BD.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                        <h4>Personal Consultation</h4>
+                        <p>Expert skincare guidance available via WhatsApp & Messenger.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-sparkles"></i></div>
+                        <h4>Curated Quality</h4>
+                        <p>Formulations picked specifically for South Asian skin types.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. CUSTOMER REVIEWS -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Loved by Skincare Enthusiasts</h2>
+                    <p>Real feedback from our valued clientele.</p>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Glownea by Mim has completely transformed my skincare routine. The AXIS-Y serum I bought was authentic and delivered super fast!"</p>
+                        <div class="reviewer-name">Nusrat Z.</div>
+                        <div class="reviewer-title">Verified Customer</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Finding genuine Beauty of Joseon products in BD used to be hard. So glad I found Mim's website. Excellent customer service!"</p>
+                        <div class="reviewer-name">Tanvin A.</div>
+                        <div class="reviewer-title">Verified Customer</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"Minimal elegant website, easy checkout via WhatsApp. The product packaging was pristine and luxurious."</p>
+                        <div class="reviewer-name">Faria R.</div>
+                        <div class="reviewer-title">Verified Customer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. NEWSLETTER SUBSCRIPTION -->
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 class="font-serif" style="font-size: 2.5rem; margin-bottom: 12px;">Join the Glow Club</h2>
+                <p style="color: var(--mauve);">Subscribe to receive exclusive beauty updates, skincare tips and early offer alerts.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Glownea by Mim!');">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 13. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Glownea by Mim</h3>
+                    <p>Your trusted destination for luxury, authentic Korean and global skincare solutions designed to nurture your natural radiance.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#categories">Face Cleansers</a></li>
+                        <li><a href="#categories">Hydrating Toners</a></li>
+                        <li><a href="#categories">Targeted Serums</a></li>
+                        <li><a href="#categories">Moisturizers</a></li>
+                        <li><a href="#categories">Sun Protection</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Brands</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">COSRX</a></li>
+                        <li><a href="#">Beauty of Joseon</a></li>
+                        <li><a href="#">Anua</a></li>
+                        <li><a href="#">AXIS-Y</a></li>
+                        <li><a href="#">SKIN1004</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Authenticity Guarantee</a></li>
+                        <li><a href="#">Shipping & Delivery Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#about">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Glownea by Mim. All rights reserved. Designed for luxury skincare experiences.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- OVERLAY & CART SIDE PANEL -->
+    <div class="overlay" id="overlay
+            <!-- OVERLAY & CART SIDE PANEL -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="side-panel" id="cartPanel">
+        <div class="panel-header">
+            <h3 class="font-serif">Shopping Bag</h3>
+            <button class="icon-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="panel-body" id="cartItemsContainer">
+            <!-- Dynamic Cart Content -->
+        </div>
+        <div class="panel-footer">
+            <div class="cart-total-row">
+                <span>Total Amount:</span>
+                <span id="cartTotal">TK. 0</span>
+            </div>
+            <button class="btn-primary" style="width: 100%; text-align: center;" onclick="showCheckoutForm()">Proceed to Checkout</button>
+        </div>
     </div>
-    <div class="brands-grid">
-        <div class="brand-item">COSRX</div>
-        <div class="brand-item">Anua</div>
-        <div class="brand-item">AXIS-Y</div>
-        <div class="brand-item">CeraVe</div>
-        <div class="brand-item">Beauty of Joseon</div>
-        <div class="brand-item">SKIN1004</div>
+
+    <!-- CHECKOUT PANEL -->
+    <div class="side-panel" id="checkoutPanel">
+        <div class="panel-header">
+            <h3 class="font-serif">Complete Order</h3>
+            <button class="icon-btn" id="closeCheckoutBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="panel-body">
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="custName" placeholder="e.g. Mim Akter" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" id="custPhone" placeholder="017xxxxxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea class="form-control" id="custAddress" rows="3" placeholder="Full address with landmark..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Order Preference</label>
+                    <select class="form-control" id="orderChannel">
+                        <option value="WhatsApp">Send Order via WhatsApp</option>
+                        <option value="Messenger">Send Order via Messenger</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="panel-footer">
+            <button class="btn-primary" style="width: 100%; text-align: center;" onclick="processOrder()">Place Order Now</button>
+        </div>
     </div>
 
-    <!-- Products Section -->
-    <div class="section-header">
-        <div class="section-title">Trending Skincare</div>
-    </div>
-    <section class="product-grid">
-        <div class="product-card">
-            <div>
-                <div class="product-img-wrap">
-                    <img src="https://i.ibb.co/3W6m83P/placeholder-serum.png" alt="Axis-Y Serum" onerror="this.src='https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=300&q=80'">
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DEMO PRODUCTS REUSABLE DATA STRUCTURE
+        const products = [
+            {
+                id: 1,
+                name: "Dark Spot Correcting Glow Serum",
+                brand: "AXIS-Y",
+                category: "Serum",
+                price: 830,
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+                tag: "Bestseller",
+                isBestseller: true
+            },
+            {
+                id: 2,
+                name: "Hydrating Facial Cleanser",
+                brand: "CeraVe",
+                category: "Face Wash & Cleanser",
+                price: 1980,
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+                tag: "Essential",
+                isBestseller: true
+            },
+            {
+                id: 3,
+                name: "Advanced Snail 96 Mucin Power Essence",
+                brand: "COSRX",
+                category: "Serum",
+                price: 1150,
+                image: "https://images.unsplash.com/photo-1608248597359-994b61386121?auto=format&fit=crop&w=600&q=80",
+                tag: "Bestseller",
+                isBestseller: true
+            },
+            {
+                id: 4,
+                name: "Relief Sun: Rice + Probiotics SPF50+",
+                brand: "Beauty of Joseon",
+                category: "Sunscreen",
+                price: 1350,
+                image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=600&q=80",
+                tag: "Top Rated",
+                isBestseller: true
+            },
+            {
+                id: 5,
+                name: "Heartleaf 77% Soothing Toner",
+                brand: "Anua",
+                category: "Toner",
+                price: 1650,
+                image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80",
+                tag: "New Arrival",
+                isBestseller: false
+            },
+            {
+                id: 6,
+                name: "Centella Ampoule Foam",
+                brand: "SKIN1004",
+                category: "Face Wash & Cleanser",
+                price: 950,
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+                tag: "New Arrival",
+                isBestseller: false
+            },
+            {
+                id: 7,
+                name: "Niacinamide 10% + Zinc 1%",
+                brand: "The Ordinary",
+                category: "Serum",
+                price: 1050,
+                image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80",
+                tag: "Popular",
+                isBestseller: false
+            },
+            {
+                id: 8,
+                name: "Gentle Skin Cleanser",
+                brand: "Cetaphil",
+                category: "Face Wash & Cleanser",
+                price: 1450,
+                image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80",
+                tag: "Classic",
+                isBestseller: false
+            }
+        ];
+
+        let cart = [];
+
+        // DOM ELEMENTS
+        const bestsellerGrid = document.getElementById('bestsellerGrid');
+        const newArrivalsGrid = document.getElementById('newArrivalsGrid');
+        const cartToggleBtn = document.getElementById('cartToggleBtn');
+        const closeCartBtn = document.getElementById('closeCartBtn');
+        const cartPanel = document.getElementById('cartPanel');
+        const checkoutPanel = document.getElementById('checkoutPanel');
+        const closeCheckoutBtn = document.getElementById('closeCheckoutBtn');
+        const overlay = document.getElementById('overlay');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const searchToggleBtn = document.getElementById('searchToggleBtn');
+        const searchContainer = document.getElementById('searchContainer');
+        const closeSearchBtn = document.getElementById('closeSearchBtn');
+        const searchInput = document.getElementById('searchInput');
+
+        // RENDER PRODUCTS
+        function renderProducts(itemsToRender, targetContainer) {
+            targetContainer.innerHTML = '';
+            itemsToRender.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name}">
+                        <span class="product-tag">${product.tag}</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">${product.brand}</div>
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">TK. ${product.price.toLocaleString()}</div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn-quick-view" onclick="addToCart(${product.id})" aria-label="Quick Order"><i class="fa-solid fa-bag-shopping"></i></button>
+                        </div>
+                    </div>
+                `;
+                targetContainer.appendChild(card);
+            });
+        }
+
+        // INIT LOAD
+        renderProducts(products.filter(p => p.isBestseller), bestsellerGrid);
+        renderProducts(products.filter(p => !p.isBestseller), newArrivalsGrid);
+
+        // SEARCH FUNCTIONALITY
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.brand.toLowerCase().includes(query) || 
+                p.category.toLowerCase().includes(query)
+            );
+            renderProducts(filtered, bestsellerGrid);
+        });
+
+        // CATEGORY FILTER
+        function filterByCategory(categoryName) {
+            const filtered = products.filter(p => p.category === categoryName);
+            renderProducts(filtered, bestsellerGrid);
+            document.getElementById('bestsellers').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // CART LOGIC
+        function addToCart(productId) {
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.qty++;
+            } else {
+                const prod = products.find(p => p.id === productId);
+                cart.push({ ...prod, qty: 1 });
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        function updateQty(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            cartCount.textContent = totalQty;
+            cartTotal.textContent = `TK. ${totalPrice.toLocaleString()}`;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--mauve); padding: 40px 0;">Your shopping bag is empty.</p>';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">TK. ${item.price.toLocaleString()}</div>
+                        <div class="cart-qty-control">
+                            <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+                        </div>
+                    </div>
                 </div>
-                <span class="brand-tag">AXIS-Y</span>
-                <div class="product-name">Dark Spot Correcting Glow Serum</div>
-            </div>
-            <div>
-                <div class="product-price">TK. 830</div>
-                <a href="https://m.me/yourfacebookpage" target="_blank" class="order-btn">Order Now</a>
-            </div>
-        </div>
+            `).join('');
+        }
 
-        <div class="product-card">
-            <div>
-                <div class="product-img-wrap">
-                    <img src="https://i.ibb.co/68Z4rQY/placeholder-cleanser.png" alt="CeraVe Cleanser" onerror="this.src='https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=300&q=80'">
-                </div>
-                <span class="brand-tag">CeraVe</span>
-                <div class="product-name">Hydrating Facial Cleanser</div>
-            </div>
-            <div>
-                <div class="product-price">TK. 1,980</div>
-                <a href="https://m.me/yourfacebookpage" target="_blank" class="order-btn">Order Now</a>
-            </div>
-        </div>
+        // PANEL CONTROLS
+        function openCart() {
+            cartPanel.classList.add('active');
+            overlay.classList.add('active');
+        }
 
-        <div class="product-card">
-            <div>
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1608248597359-994b61386121?auto=format&fit=crop&w=300&q=80" alt="COSRX Snail Mucin">
-                </div>
-                <span class="brand-tag">COSRX</span>
-                <div class="product-name">Advanced Snail 96 Mucin Power Essence</div>
-            </div>
-            <div>
-                <div class="product-price">TK. 1,150</div>
-                <a href="https://m.me/yourfacebookpage" target="_blank" class="order-btn">Order Now</a>
-            </div>
-        </div>
+        function closePanels() {
+            cartPanel.classList.remove('active');
+            checkoutPanel.classList.remove('active');
+            overlay.classList.remove('active');
+        }
 
-        <div class="product-card">
-            <div>
-                <div class="product-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=300&q=80" alt="Sunscreen">
-                </div>
-                <span class="brand-tag">Beauty of Joseon</span>
-                <div class="product-name">Relief Sun Rice + Probiotics SPF50+</div>
-            </div>
-            <div>
-                <div class="product-price">TK. 1,350</div>
-                <a href="https://m.me/yourfacebookpage" target="_blank" class="order-btn">Order Now</a>
-            </div>
-        </div>
-    </section>
+        function showCheckoutForm() {
+            if (cart.length === 0) {
+                alert('Your shopping bag is empty!');
+                return;
+            }
+            cartPanel.classList.remove('active');
+            checkoutPanel.classList.add('active');
+        }
 
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <a href="#" class="nav-link active">
-            <i class="fa-solid fa-house"></i>
-            Home
-        </a>
-        <a href="#" class="nav-link">
-            <i class="fa-solid fa-border-all"></i>
-            Products
-        </a>
-        <a href="https://m.me/yourfacebookpage" target="_blank" class="nav-link">
-            <i class="fa-solid fa-bag-shopping"></i>
-            Cart / Order
-        </a>
-        <a href="#" class="nav-link">
-            <i class="fa-solid fa-user"></i>
-            Account
-        </a>
-    </nav>
+        // CHECKOUT & CONTACT INTEGRATION
+        function processOrder() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const channel = document.getElementById('orderChannel').value;
 
+            if (!name || !phone || !address) {
+                alert('Please complete all required fields in the checkout form.');
+                return;
+            }
+
+            let orderText = `New Order from Glownea by Mim Website:\n\n`;
+            orderText += `Customer Name: ${name}\nPhone: ${phone}\nAddress: ${address}\n\n`;
+            orderText += `Items Ordered:\n`;
+            
+            let total = 0;
+            cart.forEach(item => {
+                orderText += `- ${item.name} (${item.brand}) x ${item.qty} = TK. ${item.price * item.qty}\n`;
+                total += item.price * item.qty;
+            });
+
+            orderText += `\nTotal Payable: TK. ${total.toLocaleString()}`;
+
+            const encodedMsg = encodeURIComponent(orderText);
+
+            if (channel === 'WhatsApp') {
+                window.open(`https://wa.me/?text=${encodedMsg}`, '_blank');
+            } else {
+                window.open(`https://m.me/?text=${encodedMsg}`, '_blank');
+            }
+
+            cart = [];
+            updateCartUI();
+            closePanels();
+        }
+
+        // EVENT LISTENERS
+        cartToggleBtn.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closePanels);
+        closeCheckoutBtn.addEventListener('click', closePanels);
+        overlay.addEventListener('click', closePanels);
+        searchToggleBtn.addEventListener('click', () => searchContainer.classList.toggle('active'));
+        closeSearchBtn.addEventListener('click', () => searchContainer.classList.remove('active'));
+    </script>
 </body>
 </html>
