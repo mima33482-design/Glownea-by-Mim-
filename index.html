@@ -1,77 +1,448 @@
 
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glownea by Mim</title>
+<meta name="theme-color" content="#f8f6f1">
+<title>Glownea by Mim | The Art of Skincare</title>
+<meta name="description" content="Discover considered skincare at Glownea by Mim.">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff7f9;color:#44343a}
-header{background:#f8dce6;padding:24px 15px;text-align:center}
-header h1{color:#a83265;margin:0;font-size:27px}
-header p{margin:8px 0 0}
-nav{background:#fff;padding:13px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-nav a{color:#a83265;text-decoration:none;font-weight:bold}
-.hero{padding:38px 18px;text-align:center;background:#fdeaf0}
-.hero h2{color:#a83265;font-size:25px}
-.hero p{line-height:1.6}
-button,.order{background:#b83d70;color:white;border:0;padding:11px 18px;border-radius:22px;text-decoration:none;display:inline-block;cursor:pointer}
-.search{display:block;width:90%;max-width:450px;margin:22px auto;padding:13px;border:1px solid #e5b9ca;border-radius:22px;font-size:15px}
-h2.section{text-align:center;color:#a83265;margin-top:32px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;padding:15px;max-width:900px;margin:auto}
-.product{background:white;padding:15px;border-radius:14px;box-shadow:0 2px 9px #ead9df;text-align:center}
-.product .pic{font-size:48px;background:#fff0f5;padding:20px;border-radius:12px}
-.product h3{font-size:16px}
-.price{color:#a83265;font-weight:bold}
-footer{margin-top:35px;padding:25px;background:#f8dce6;text-align:center;line-height:1.8}
-footer a{color:#a83265;margin:5px}
+:root{
+ --cream:#f8f6f1;--white:#fff;--ink:#25221f;
+ --muted:#77716b;--wine:#652d3d;--gold:#b49a70;
+ --line:#e9e3d9;--soft:#eee9e0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+button,input,select,textarea{font:inherit}
+button,a{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,92%);margin:auto}
+.announcement{background:var(--wine);color:white;text-align:center;padding:8px;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+header{background:rgba(248,246,241,.97);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.head{height:82px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-family:Georgia,serif;font-size:27px;letter-spacing:1px;color:var(--wine);line-height:1.1}
+.logo span{display:block;font-family:Arial,sans-serif;text-align:center;font-size:9px;letter-spacing:5px;margin-top:5px;color:var(--muted)}
+.nav{display:flex;gap:27px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+.nav a:hover{color:var(--wine)}
+.head-actions{display:flex;gap:9px;align-items:center}
+.icon{border:1px solid var(--line);background:transparent;width:39px;height:39px;border-radius:50%;display:grid;place-items:center;color:var(--wine)}
+.icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.5}
+.count{font-size:10px;background:var(--wine);color:white;padding:2px 6px;border-radius:20px;margin-left:-14px;margin-top:-22px}
+.mobile-nav{display:none}
+.hero{padding:45px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:490px;background:#eee8df}
+.hero-copy{padding:clamp(28px,6vw,75px);display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:bold}
+.hero h1{font-family:Georgia,serif;font-weight:normal;font-size:clamp(42px,5vw,68px);line-height:1.08;color:var(--wine);margin:20px 0}
+.hero p{max-width:390px;color:#6e6761;font-size:14px;margin-bottom:28px}
+.btn{display:inline-flex;justify-content:center;align-items:center;background:var(--wine);color:white;border:1px solid var(--wine);padding:13px 25px;font-size:10px;letter-spacing:1.7px;text-transform:uppercase;transition:.2s}
+.btn:hover{background:#45202b}
+.btn-outline{background:transparent;color:var(--wine)}
+.btn-outline:hover{color:white}
+.hero-visual{min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#ded3c6,#f2ece3)}
+.hero-visual:before,.hero-visual:after{content:"";position:absolute;border:1px solid rgba(101,45,61,.25);border-radius:50%;width:310px;height:310px}
+.hero-visual:after{width:230px;height:230px}
+.hero-monogram{font-family:Georgia,serif;font-size:110px;color:rgba(101,45,61,.75);z-index:1}
+.visual-caption{position:absolute;bottom:25px;letter-spacing:3px;font-size:9px;color:#685b54}
+.section{padding:65px 0}
+.section-heading{text-align:center;margin-bottom:32px}
+.section-heading .eyebrow{margin-bottom:9px}
+.section-heading h2{font-family:Georgia,serif;font-weight:normal;font-size:clamp(28px,4vw,39px);color:var(--wine)}
+.section-heading p{font-size:13px;color:var(--muted);margin-top:7px}
+.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.brand{padding:25px 12px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:transparent;transition:.2s}
+.brand:hover{background:#eee8df}
+.brand strong{font-family:Georgia,serif;font-size:18px;font-weight:normal;color:var(--wine)}
+.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:1px;margin-top:5px;text-transform:uppercase}
+.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.category{padding:22px 8px;border:1px solid var(--line);text-align:center;background:white;transition:.2s}
+.category:hover{border-color:var(--wine);transform:translateY(-3px)}
+.category-mark{width:29px;height:29px;border:1px solid var(--gold);border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;color:var(--wine);font-family:Georgia,serif}
+.category span:last-child{font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.feature-band{background:var(--wine);color:white;padding:48px 0;text-align:center}
+.feature-band h2{font-family:Georgia,serif;font-size:32px;font-weight:normal}
+.feature-band p{font-size:12px;color:#e6d8d8;margin:10px auto 20px;max-width:520px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.toolbar input,.toolbar select{border:1px solid var(--line);background:white;padding:11px 13px;font-size:12px;outline:none}
+.toolbar input{min-width:220px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.product{background:white;border:1px solid var(--line)}
+.product-visual{height:220px;background:#eee9e0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-visual img{width:100%;height:100%;object-fit:cover}
+.product-placeholder{width:105px;height:145px;border:1px solid #b9a99a;background:linear-gradient(145deg,#f9f6f0,#d9cbbd);display:flex;align-items:center;justify-content:center;box-shadow:10px 10px 20px #b8aa9b66}
+.product-placeholder span{font-family:Georgia,serif;color:var(--wine);font-size:15px;letter-spacing:2px}
+.product-info{padding:15px}
+.product-brand{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+.product-info h3{font-family:Georgia,serif;font-size:17px;font-weight:normal;margin:5px 0;color:var(--ink)}
+.product-meta{font-size:11px;color:var(--muted)}
+.price{font-size:13px;color:var(--wine);font-weight:bold;margin:10px 0}
+.product-buttons{display:flex;gap:7px}
+.product-buttons button{flex:1;padding:9px 5px;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.product-buttons .btn{padding:9px 5px}
+.empty{text-align:center;padding:45px 10px;color:var(--muted);font-size:13px;grid-column:1/-1}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.about-visual{min-height:300px;background:#e9e1d7;display:grid;place-items:center}
+.about-visual div{font-family:Georgia,serif;color:var(--wine);font-size:38px;text-align:center}
+.about-copy h2{font-family:Georgia,serif;font-weight:normal;color:var(--wine);font-size:36px;line-height:1.2;margin:12px 0}
+.about-copy p{font-size:13px;color:var(--muted);margin-bottom:18px}
+.newsletter{background:#eee8df;text-align:center;padding:50px 15px}
+.newsletter h2{font-family:Georgia,serif;font-weight:normal;font-size:30px;color:var(--wine)}
+.newsletter p{font-size:12px;color:var(--muted);margin:8px 0 20px}
+.newsletter form{display:flex;max-width:420px;margin:auto}
+.newsletter input{flex:1;min-width:0;padding:13px;border:1px solid var(--line);background:white;outline:0}
+.newsletter button{border:0;padding:0 18px;background:var(--wine);color:white;font-size:10px;letter-spacing:1px}
+footer{background:#282321;color:#eee8df;padding:45px 0 22px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
+footer .logo{color:#e7d5c8}
+footer p,footer a{font-size:11px;color:#c5b9b1}
+footer h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:13px;color:#d5b98e}
+.footer-links{display:grid;gap:9px}
+.copyright{border-top:1px solid #514541;margin-top:30px;padding-top:18px;text-align:center;font-size:10px;color:#a99c94}
+.modal-bg{display:none;position:fixed;inset:0;background:#17110fcc;z-index:100;align-items:center;justify-content:center;padding:15px}
+.modal-bg.show{display:flex}
+.modal{position:relative;background:var(--cream);width:min(560px,100%);max-height:90vh;overflow:auto;padding:27px}
+.close{position:absolute;right:14px;top:12px;background:none;border:0;color:var(--wine);font-size:25px}
+.modal h2{font-family:Georgia,serif;font-weight:normal;color:var(--wine);font-size:27px;margin-bottom:15px}
+.field{margin:13px 0}
+.field label{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;padding:11px;border:1px solid var(--line);background:white;outline:none}
+.cart-row{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}
+.cart-row button{border:0;background:none;color:var(--wine);padding:0 5px}
+.notice{background:#eee8df;padding:12px;font-size:11px;color:#675d56;margin:13px 0}
+.admin-section{border:1px solid var(--line);padding:15px;margin:12px 0}
+.admin-section h3{font-family:Georgia,serif;color:var(--wine);font-weight:normal;margin-bottom:10px}
+.admin-section button{margin-top:8px}
+@media(max-width:800px){
+ .nav{gap:12px;font-size:9px}
+ .products{grid-template-columns:repeat(2,1fr)}
+ .category-grid{grid-template-columns:repeat(3,1fr)}
+ .hero-grid{grid-template-columns:1fr}
+ .hero-visual{min-height:240px}
+ .brand-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+ .head{height:70px}
+ .logo{font-size:22px}
+ .nav{overflow:auto;justify-content:flex-start;padding:12px 4%;white-space:nowrap}
+ .nav::-webkit-scrollbar{display:none}
+ .hero{padding:20px 0 35px}
+ .hero-copy{padding:35px 24px}
+ .hero h1{font-size:43px}
+ .section{padding:45px 0}
+ .product-visual{height:165px}
+ .about-grid,.footer-grid{grid-template-columns:1fr}
+ .about-visual{min-height:220px}
+}
 </style>
 </head>
+
 <body>
+<div class="announcement">A considered approach to everyday skincare</div>
+
 <header>
-<h1>Glownea by Mim</h1>
-<p>Your skincare, your glow ✨</p>
+ <div class="container head">
+  <a href="#home" class="logo">Glownea<span>BY MIM</span></a>
+  <div class="head-actions">
+   <button class="icon" aria-label="Search" onclick="document.getElementById('search').focus()">
+    <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg>
+   </button>
+   <button class="icon" aria-label="Shopping bag" onclick="openCart()">
+    <svg viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+   </button>
+   <span class="count" id="cartCount">0</span>
+  </div>
+ </div>
+ <nav><div class="container nav">
+  <a href="#home">Home</a><a href="#brands">Our Brands</a>
+  <a href="#categories">Categories</a><a href="#products">Shop</a>
+  <a href="#about">Our Story</a><a href="#contact">Contact</a>
+ </div></nav>
 </header>
-<nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About Us</a>
-<a href="#contact">Contact</a>
-</nav>
+
+<main>
 <section class="hero" id="home">
-<h2>Discover Your Natural Glow</h2>
-<p>Explore skincare products and find a routine that suits your skin.</p>
-<a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order on Facebook</a>
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <div class="eyebrow">The Glownea Philosophy</div>
+   <h1>The Art of<br>Everyday Skincare.</h1>
+   <p>Thoughtfully explore skincare essentials, discover trusted brands and create a routine that feels right for you.</p>
+   <div class="row">
+    <a class="btn" href="#products">Discover the Collection</a>
+    <a class="btn btn-outline" href="#about">Our Story</a>
+   </div>
+  </div>
+  <div class="hero-visual">
+   <div class="hero-monogram">G.</div>
+   <div class="visual-caption">BEAUTY IN EVERY DETAIL</div>
+  </div>
+ </div>
 </section>
-<input class="search" id="search" placeholder="Search skincare products...">
-<h2 class="section" id="products">Our Products</h2>
-<div class="products" id="productList">
-<div class="product"><div class="pic">🧴</div><h3>AXIS-Y Dark Spot Correcting Glow Serum</h3><p class="price">৳830</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
-<div class="product"><div class="pic">🫧</div><h3>CeraVe Hydrating Facial Cleanser</h3><p class="price">৳1,980</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
-<div class="product"><div class="pic">🌿</div><h3>Skincare Essentials</h3><p>Ask us for details</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
-</div>
-<section id="about" style="text-align:center;padding:20px">
-<h2 class="section">About Glownea by Mim</h2>
-<p>We share skincare information and help you explore skincare products.</p>
+
+<section class="section" id="brands">
+ <div class="container">
+  <div class="section-heading">
+   <div class="eyebrow">A Curated Selection</div>
+   <h2>Explore Our Brands</h2>
+   <p>Discover names from the world of skincare.</p>
+  </div>
+  <div class="brand-grid" id="brandGrid"></div>
+ </div>
 </section>
+
+<section class="section" id="categories">
+ <div class="container">
+  <div class="section-heading">
+   <div class="eyebrow">Find Your Essentials</div>
+   <h2>Shop by Category</h2>
+   <p>Explore the essentials of a considered routine.</p>
+  </div>
+  <div class="category-grid" id="categoryGrid"></div>
+ </div>
+</section>
+
+<section class="feature-band">
+ <div class="container">
+  <div class="eyebrow" style="color:#d8bd96">A Little More Thought, Every Day</div>
+  <h2>Skincare, Considered.</h2>
+  <p>Good skincare begins with understanding your needs. Explore product information and make informed choices.</p>
+  <a class="btn" style="background:transparent;border-color:#e4d2c1" href="#products">Explore Collection</a>
+ </div>
+</section>
+
+<section class="section" id="products">
+ <div class="container">
+  <div class="section-heading">
+   <div class="eyebrow">The Collection</div>
+   <h2>Discover Our Products</h2>
+   <p>Explore the collection at Glownea by Mim.</p>
+  </div>
+  <div class="toolbar">
+   <input id="search" placeholder="Search product or brand..." oninput="renderProducts()">
+   <select id="sort" onchange="renderProducts()">
+    <option value="default">Featured</option>
+    <option value="low">Price: Low to High</option>
+    <option value="high">Price: High to Low</option>
+   </select>
+  </div>
+  <div class="products" id="productGrid"></div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container about-grid">
+  <div class="about-visual"><div>GLOWNEA<br><small style="font-size:11px;letter-spacing:5px">BY MIM</small></div></div>
+  <div class="about-copy">
+   <div class="eyebrow">Our Story</div>
+   <h2>A More Thoughtful Way to Explore Skincare.</h2>
+   <p>Glownea by Mim is a skincare destination built around discovery, product knowledge and thoughtful choices.</p>
+   <p>Our aim is to make exploring skincare brands and essentials feel simple, clear and considered.</p>
+   <a href="#contact" class="btn">Connect With Us</a>
+  </div>
+ </div>
+</section>
+
+<section class="newsletter">
+ <div class="eyebrow">Stay Connected</div>
+ <h2>Notes from Glownea</h2>
+ <p>Follow our social channels for skincare education and updates.</p>
+ <a class="btn" href="https://www.facebook.com/share/1Mkv73FrTF/" target="_blank">Follow Glownea</a>
+</section>
+</main>
+
 <footer id="contact">
-<h3>Contact Glownea by Mim</h3>
-<p>Message us for product details and order inquiries.</p>
-<a href="https://www.facebook.com/share/1Mkv73FrTF/">Facebook</a>
-<a href="https://www.instagram.com/glowneaby_mim/">Instagram</a>
-<a href="https://www.tiktok.com/@glownea.by.mim">TikTok</a>
-<a href="https://www.youtube.com/@GlowneaByMim">YouTube</a>
-<p>© 2026 Glownea by Mim</p>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <div class="logo">Glownea<span>BY MIM</span></div>
+    <p style="margin-top:18px;max-width:280px">A thoughtful destination for skincare discovery, product knowledge and everyday essentials.</p>
+   </div>
+   <div><h4>Explore</h4><div class="footer-links">
+    <a href="#brands">Our Brands</a><a href="#categories">Categories</a><a href="#products">Shop</a><a href="#about">Our Story</a>
+   </div></div>
+   <div><h4>Connect</h4><div class="footer-links">
+    <a href="https://www.facebook.com/share/1Mkv73FrTF/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/glowneaby_mim/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@glownea.by.mim" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@GlowneaByMim" target="_blank">YouTube</a>
+   </div></div>
+  </div>
+  <div class="copyright">© 2026 Glownea by Mim. All rights reserved. <br><a href="#" onclick="openAdmin();return false">Admin Demo</a></div>
+ </div>
 </footer>
+
+<div class="modal-bg" id="productModal"><div class="modal">
+ <button class="close" onclick="closeModal('productModal')">×</button>
+ <div id="productDetails"></div>
+</div></div>
+
+<div class="modal-bg" id="cartModal"><div class="modal">
+ <button class="close" onclick="closeModal('cartModal')">×</button>
+ <h2>Your Shopping Bag</h2>
+ <div id="cartItems"></div><h3 id="cartTotal" class="price"></h3>
+ <button class="btn" onclick="openCheckout()">Continue to Checkout</button>
+</div></div>
+
+<div class="modal-bg" id="checkoutModal"><div class="modal">
+ <button class="close" onclick="closeModal('checkoutModal')">×</button>
+ <h2>Checkout</h2>
+ <div class="notice">Demo only. Orders are not sent to the shop owner in this version.</div>
+ <form id="checkoutForm">
+  <div class="field"><label>Full Name</label><input required name="customer"></div>
+  <div class="field"><label>Phone Number</label><input required name="phone" type="tel"></div>
+  <div class="field"><label>Delivery Address</label><textarea required name="address" rows="3"></textarea></div>
+  <div class="field"><label>Payment Method</label>
+   <select name="payment"><option>Cash on Delivery</option><option>bKash Manual</option><option>Nagad Manual</option></select>
+  </div>
+  <div class="field"><label>Transaction ID (if applicable)</label><input name="transaction"></div>
+  <button class="btn" type="submit">Review Demo Order</button>
+ </form>
+</div></div>
+
+<div class="modal-bg" id="adminModal"><div class="modal">
+ <button class="close" onclick="closeModal('adminModal')">×</button>
+ <h2>Admin Demo</h2>
+ <div class="notice">This is not a secure admin login. Changes are stored only in this browser.</div>
+ <div class="admin-section">
+  <h3>Add Product</h3>
+  <div class="field"><label>Product Name</label><input id="newName"></div>
+  <div class="field"><label>Brand</label><input id="newBrand"></div>
+  <div class="field"><label>Category</label><input id="newCategory"></div>
+  <div class="field"><label>Price in BDT</label><input id="newPrice" type="number" min="1"></div>
+  <div class="field"><label>Product Image URL (optional)</label><input id="newImage" placeholder="https://..."></div>
+  <button class="btn" onclick="addProduct()">Add Product</button>
+ </div>
+ <div class="admin-section">
+  <h3>Add Brand</h3>
+  <input id="newBrandName" placeholder="Brand name">
+  <button class="btn" onclick="addBrand()">Add Brand</button>
+ </div>
+ <div class="admin-section">
+  <h3>Reset Demo Catalogue</h3>
+  <button class="btn btn-outline" onclick="resetDemo()">Reset Sample Data</button>
+ </div>
+</div></div>
+
 <script>
-const search=document.getElementById('search');
-search.addEventListener('input',function(){
-const q=this.value.toLowerCase();
-document.querySelectorAll('.product').forEach(item=>{
-item.style.display=item.innerText.toLowerCase().includes(q)?'block':'none';
+const starterProducts=[
+ {id:1,name:"Gentle Facial Cleanser",brand:"Simple",category:"Cleanser",price:650,size:"150ml",image:"",description:"Sample catalogue entry. Confirm exact product details and availability before listing."},
+ {id:2,name:"Hydrating Serum",brand:"COSRX",category:"Serum",price:950,size:"30ml",image:"",description:"Sample catalogue entry. Confirm exact product details and availability before listing."},
+ {id:3,name:"Daily Sunscreen",brand:"SKIN1004",category:"Sunscreen",price:1100,size:"50ml",image:"",description:"Sample catalogue entry. Confirm exact product details and availability before listing."},
+ {id:4,name:"Moisturizing Cream",brand:"Cetaphil",category:"Moisturizer",price:1250,size:"50g",image:"",description:"Sample catalogue entry. Confirm exact product details and availability before listing."}
+];
+const starterBrands=["ANUA","AXIS-Y","BEAUTY OF JOSEON","CETAPHIL","COSRX","ETUDE","ISNTREE","SIMPLE","SKIN1004","THE ORDINARY","3W CLINIC","CELIMAX"];
+const categories=["Cleanser","Face Wash","Serum","Toner","Sunscreen","Moisturizer"];
+let products=JSON.parse(localStorage.getItem("glownea_products_v2")||"null")||starterProducts;
+let brands=JSON.parse(localStorage.getItem("glownea_brands_v2")||"null")||starterBrands;
+let cart=[];
+
+function save(){
+ localStorage.setItem("glownea_products_v2",JSON.stringify(products));
+ localStorage.setItem("glownea_brands_v2",JSON.stringify(brands));
+}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderBrands(){
+ document.getElementById("brandGrid").innerHTML=brands.map(b=>
+ `<button class="brand" onclick="filterProducts('${esc(b)}')"><strong>${esc(b)}</strong><small>Explore collection</small></button>`).join("");
+}
+function renderCategories(){
+ document.getElementById("categoryGrid").innerHTML=categories.map((c,i)=>
+ `<button class="category" onclick="filterProducts('${c}')"><span class="category-mark">${String(i+1).padStart(2,"0")}</span><span>${c}</span></button>`).join("");
+}
+function renderProducts(){
+ let q=document.getElementById("search").value.toLowerCase();
+ let list=products.filter(p=>(p.name+" "+p.brand+" "+p.category).toLowerCase().includes(q));
+ const sort=document.getElementById("sort").value;
+ if(sort==="low")list.sort((a,b)=>a.price-b.price);
+ if(sort==="high")list.sort((a,b)=>b.price-a.price);
+ document.getElementById("productGrid").innerHTML=list.length?list.map(p=>`
+ <article class="product">
+  <div class="product-visual">
+   ${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.style.display='none'">`:
+   `<div class="product-placeholder"><span>${esc(p.brand.slice(0,12))}</span></div>`}
+  </div>
+  <div class="product-info">
+   <div class="product-brand">${esc(p.brand)}</div>
+   <h3>${esc(p.name)}</h3>
+   <div class="product-meta">${esc(p.category)} · ${esc(p.size||"Size to be confirmed")}</div>
+   <div class="price">৳${Number(p.price).toLocaleString("en-BD")}</div>
+   <div class="product-buttons">
+    <button class="btn btn-outline" onclick="showProduct(${p.id})">Details</button>
+    <button class="btn" onclick="addCart(${p.id})">Add to Bag</button>
+   </div>
+  </div>
+ </article>`).join(""):'<div class="empty">No products found. Please try another search.</div>';
+}
+function filterProducts(q){document.getElementById("search").value=q;renderProducts();document.getElementById("products").scrollIntoView()}
+function showProduct(id){
+ let p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("productDetails").innerHTML=`
+ <div class="product-visual" style="margin-bottom:20px">
+ ${p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}">`:`<div class="product-placeholder"><span>${esc(p.brand)}</span></div>`}
+ </div>
+ <div class="product-brand">${esc(p.brand)} · ${esc(p.category)}</div>
+ <h2>${esc(p.name)}</h2><p class="price">৳${Number(p.price).toLocaleString("en-BD")}</p>
+ <p class="product-meta">Size: ${esc(p.size||"To be confirmed")}</p>
+ <p style="font-size:13px;margin:14px 0">${esc(p.description)}</p>
+ <button class="btn" onclick="addCart(${p.id});closeModal('productModal')">Add to Bag</button>`;
+ document.getElementById("productModal").classList.add("show");
+}
+function addCart(id){
+ let item=cart.find(x=>x.id===id);
+ if(item)item.qty++;else cart.push({id,qty:1});
+ updateCart();alert("Added to shopping bag.");
+}
+function updateCart(){
+ document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
+ let total=0;
+ document.getElementById("cartItems").innerHTML=cart.map(x=>{
+ let p=products.find(y=>y.id===x.id);if(!p)return "";
+ total+=p.price*x.qty;
+ return `<div class="cart-row"><span>${esc(p.name)}<br>৳${p.price} × ${x.qty}</span>
+ <span><button onclick="changeQty(${x.id},-1)">−</button>${x.qty}<button onclick="changeQty(${x.id},1)">+</button><button onclick="removeItem(${x.id})">Remove</button></span></div>`;
+ }).join("")||'<div class="empty">Your bag is currently empty.</div>';
+ document.getElementById("cartTotal").textContent="Subtotal: ৳"+total.toLocaleString("en-BD");
+}
+function changeQty(id,n){let x=cart.find(y=>y.id===id);if(!x)return;x.qty+=n;if(x.qty<1)removeItem(id);else updateCart()}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);updateCart()}
+function openCart(){updateCart();document.getElementById("cartModal").classList.add("show")}
+function openCheckout(){
+ if(!cart.length){alert("Your shopping bag is empty.");return}
+ closeModal("cartModal");document.getElementById("checkoutModal").classList.add("show");
+}
+function closeModal(id){document.getElementById(id).classList.remove("show")}
+function openAdmin(){document.getElementById("adminModal").classList.add("show")}
+document.getElementById("checkoutForm").addEventListener("submit",function(e){
+ e.preventDefault();let f=new FormData(this);
+ let total=cart.reduce((s,x)=>s+(products.find(p=>p.id===x.id)?.price||0)*x.qty,0);
+ alert("DEMO ORDER PREVIEW\nCustomer: "+f.get("customer")+"\nPhone: "+f.get("phone")+"\nPayment: "+f.get("payment")+"\nSubtotal: ৳"+total+"\n\nThis order has NOT been sent or saved. Backend integration is required.");
+ console.log("Demo order",Object.fromEntries(f.entries()),cart);
+ cart=[];updateCart();this.reset();closeModal("checkoutModal");
 });
-});
+function addProduct(){
+ let name=document.getElementById("newName").value.trim();
+ let brand=document.getElementById("newBrand").value.trim();
+ let category=document.getElementById("newCategory").value.trim();
+ let price=Number(document.getElementById("newPrice").value);
+ let image=document.getElementById("newImage").value.trim();
+ if(!name||!brand||!category||price<=0){alert("Please complete the product details.");return}
+ products.push({id:Date.now(),name,brand,category,price,image,size:"To be confirmed",description:"Add verified product information here."});
+ save();renderProducts();alert("Product added to this browser's demo catalogue.");
+}
+function addBrand(){
+ let b=document.getElementById("newBrandName").value.trim();
+ if(!b)return alert("Enter a brand name.");
+ if(brands.some(x=>x.toLowerCase()===b.toLowerCase()))return alert("Brand already exists.");
+ brands.push(b.toUpperCase());save();renderBrands();document.getElementById("newBrandName").value="";
+}
+function resetDemo(){
+ if(!confirm("Reset the demo catalogue?"))return;
+ products=starterProducts;brands=starterBrands;save();renderBrands();renderProducts();
+}
+renderBrands();renderCategories();renderProducts();updateCart();
 </script>
 </body>
 </html>
