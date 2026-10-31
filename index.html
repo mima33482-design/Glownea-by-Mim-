@@ -1,23 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glownea by Mim</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff5f7;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #d63384;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glownea by Mim</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff7f9;color:#44343a}
+header{background:#f8dce6;padding:24px 15px;text-align:center}
+header h1{color:#a83265;margin:0;font-size:27px}
+header p{margin:8px 0 0}
+nav{background:#fff;padding:13px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+nav a{color:#a83265;text-decoration:none;font-weight:bold}
+.hero{padding:38px 18px;text-align:center;background:#fdeaf0}
+.hero h2{color:#a83265;font-size:25px}
+.hero p{line-height:1.6}
+button,.order{background:#b83d70;color:white;border:0;padding:11px 18px;border-radius:22px;text-decoration:none;display:inline-block;cursor:pointer}
+.search{display:block;width:90%;max-width:450px;margin:22px auto;padding:13px;border:1px solid #e5b9ca;border-radius:22px;font-size:15px}
+h2.section{text-align:center;color:#a83265;margin-top:32px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;padding:15px;max-width:900px;margin:auto}
+.product{background:white;padding:15px;border-radius:14px;box-shadow:0 2px 9px #ead9df;text-align:center}
+.product .pic{font-size:48px;background:#fff0f5;padding:20px;border-radius:12px}
+.product h3{font-size:16px}
+.price{color:#a83265;font-weight:bold}
+footer{margin-top:35px;padding:25px;background:#f8dce6;text-align:center;line-height:1.8}
+footer a{color:#a83265;margin:5px}
+</style>
 </head>
 <body>
-    <h1>Welcome to Glownea by Mim</h1>
-    <p>Our website is coming soon!</p>
+<header>
+<h1>Glownea by Mim</h1>
+<p>Your skincare, your glow ✨</p>
+</header>
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contact</a>
+</nav>
+<section class="hero" id="home">
+<h2>Discover Your Natural Glow</h2>
+<p>Explore skincare products and find a routine that suits your skin.</p>
+<a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order on Facebook</a>
+</section>
+<input class="search" id="search" placeholder="Search skincare products...">
+<h2 class="section" id="products">Our Products</h2>
+<div class="products" id="productList">
+<div class="product"><div class="pic">🧴</div><h3>AXIS-Y Dark Spot Correcting Glow Serum</h3><p class="price">৳830</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
+<div class="product"><div class="pic">🫧</div><h3>CeraVe Hydrating Facial Cleanser</h3><p class="price">৳1,980</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
+<div class="product"><div class="pic">🌿</div><h3>Skincare Essentials</h3><p>Ask us for details</p><a class="order" href="https://www.facebook.com/share/1Mkv73FrTF/">Order</a></div>
+</div>
+<section id="about" style="text-align:center;padding:20px">
+<h2 class="section">About Glownea by Mim</h2>
+<p>We share skincare information and help you explore skincare products.</p>
+</section>
+<footer id="contact">
+<h3>Contact Glownea by Mim</h3>
+<p>Message us for product details and order inquiries.</p>
+<a href="https://www.facebook.com/share/1Mkv73FrTF/">Facebook</a>
+<a href="https://www.instagram.com/glowneaby_mim/">Instagram</a>
+<a href="https://www.tiktok.com/@glownea.by.mim">TikTok</a>
+<a href="https://www.youtube.com/@GlowneaByMim">YouTube</a>
+<p>© 2026 Glownea by Mim</p>
+</footer>
+<script>
+const search=document.getElementById('search');
+search.addEventListener('input',function(){
+const q=this.value.toLowerCase();
+document.querySelectorAll('.product').forEach(item=>{
+item.style.display=item.innerText.toLowerCase().includes(q)?'block':'none';
+});
+});
+</script>
 </body>
 </html>
